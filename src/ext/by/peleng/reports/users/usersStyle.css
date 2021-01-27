@@ -1,0 +1,78 @@
+@font-face {
+    font-family: "Times New Roman", "Times New Roman", Sans-Serif, sans-serif;
+}
+
+html {
+    font-size: 20px;
+    color: #656665;
+}
+
+body {
+    margin: 7% auto;
+    padding: 0 10%;
+    background: #ebe8e8;
+    text-align: center;
+}
+
+form {
+    margin: 15% auto;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+select {
+    padding: 1.2em;
+    font-size: 20px;
+    color: rgb(85, 85, 85);
+    border: none;
+    width: 40%;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
+    background: #FFFFFF;
+}
+
+button {
+    margin-top: 5%;
+    background: #66CDAA;
+    padding: 1.5% 5%;
+    font-size: 20px;
+    color: #656665;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    border: 0;
+    cursor:pointer;
+    outline: none;
+    transition: all 0.5s;
+}
+
+button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: all 0.5s;
+    background: #66CDAA;
+}
+
+button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+button:hover {
+    box-shadow: 0 0 10px 0 #66CDAA inset, 0 0 10px 4px #66CDAA;
+}
+
+button:hover span {
+    padding-right: 25px;
+}
+
+button:hover span:after {
+    opacity: 1;
+    right: 0;
+}

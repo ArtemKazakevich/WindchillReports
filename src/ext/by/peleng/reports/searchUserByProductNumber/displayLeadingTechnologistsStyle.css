@@ -1,0 +1,109 @@
+@font-face {
+    font-family: "Times New Roman", "Times New Roman", Sans-Serif, sans-serif;
+}
+
+html {
+    font-size: 20px;
+}
+
+body {
+    margin: 7% auto;
+    padding: 0 10%;
+    background: #ECE9E0;
+    color: #656665;
+}
+
+table {
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 10px;
+    background: #ECE9E0;
+    border: 16px solid #ECE9E0;
+    border-radius: 20px;
+    max-width: 100%;
+    width: 100%;
+}
+th {
+    padding: 2%;
+    text-align: left;
+}
+td {
+    text-align: left;
+    font-size: 22px;
+    background: #F5D7BF;
+    padding: 2%;
+    border-radius: 10px;
+}
+
+th:first-child, td:first-child {
+    text-align: left;
+}
+
+caption {
+    text-align: center;
+    caption-side: top;
+    padding: 2% 0;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+form {
+    margin: 5% auto;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+button {
+    background: #F5D7BF;
+    padding: 1.5% 5%;
+    font-size: 20px;
+    color: #656665;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 10px;
+    border: 0;
+    cursor:pointer;
+    outline: none;
+
+    -webkit-animation: pulsate-bck 3s linear infinite both;
+    animation: pulsate-bck 3s linear infinite both;
+}
+
+button:hover {
+    background: #40E0D0;
+}
+
+@-webkit-keyframes pulsate-bck {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+@keyframes pulsate-bck {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+    100% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
