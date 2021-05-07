@@ -23,9 +23,11 @@
 
 <%
     List<WTUser> users = new ArrayList<>();
-    String name = "СГТ - Литьё";
+    String name = "7084 - Сосна";
     String oid = "";
     ReferenceFactory refFact = new ReferenceFactory();
+    String nameUser = "Трусов";
+    String oidUser = "";
 
     List<WTContainer> containers = getAllContainersInWindchill();
 
@@ -38,23 +40,13 @@
             Enumeration localEnumeration = ContainerTeamServerHelper.service.findUsers(teamManaged);
 
             while (localEnumeration.hasMoreElements()) {
-                users.add((WTUser) localEnumeration.nextElement());
+                WTUser user = ((WTUser) localEnumeration.nextElement());
+
+                if (user.getLast().equals(nameUser)) {
+                    users.add(user);
+                }
             }
         }
-
-        /////////////////////////////////////////////////
-
-//        ContainerTeamManaged teamManaged = (ContainerTeamManaged) container;
-//        ContainerTeam team = ContainerTeamHelper.service.getContainerTeam(teamManaged);
-//        Vector<?> vector = team.getMembers();
-//
-//        for (Object object : vector) {
-//             if (object instanceof WTUser) {
-//                  WTUser user = (WTUser) object;
-//                  users.add(user);
-//             }
-//        }
-
     }
 
     Collections.sort(users, new Comparator<WTUser>() {
@@ -66,10 +58,11 @@
 
 
     for (WTUser u : users) {
+        oidUser = refFact.getReferenceString(u);
 %>
 <p><%=oid%></p>
 <p>
-    <%=u.getFullName()%>
+    <%=u.getFullName()%> /-/ <%=oidUser%>
 </p>
 
 <%
