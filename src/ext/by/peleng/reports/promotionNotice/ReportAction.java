@@ -134,6 +134,11 @@ public class ReportAction {
                     roleForWorkItem = workItem.getRole().getDisplay(locale);
                     userWhoCompletedWorkItem = workItem.getOwnership().getOwner().getFullName().replace(",", "");
                     dateFinishedWorkItem = "Выполняется";
+                } else if ("listWIAccepted".equals(entry.getKey())) {
+                    nameWorkItem = wfaa.getName();
+                    roleForWorkItem = workItem.getRole().getDisplay(locale);
+                    userWhoCompletedWorkItem = workItem.getOwnership().getOwner().getFullName().replace(",", "");
+                    dateFinishedWorkItem = "Принято";
                 }
 
                 if (listStringInComment.size() > 0) {

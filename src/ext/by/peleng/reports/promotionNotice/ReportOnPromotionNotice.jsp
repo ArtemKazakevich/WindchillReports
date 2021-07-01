@@ -225,6 +225,11 @@
                     roleForWorkItem = workItem.getRole().getDisplay(locale);
                     userWhoCompletedWorkItem = workItem.getOwnership().getOwner().getFullName().replace(",", "");
                     dateFinishedWorkItem = "Выполняется";
+                } else if ("listWIAccepted".equals(entry.getKey())) {
+                    nameWorkItem = wfaa.getName();
+                    roleForWorkItem = workItem.getRole().getDisplay(locale);
+                    userWhoCompletedWorkItem = workItem.getOwnership().getOwner().getFullName().replace(",", "");
+                    dateFinishedWorkItem = "Принято";
                 }
 
     %>
@@ -506,6 +511,7 @@
         Map<String, ArrayList<WorkItem>> workItems = new TreeMap<String, ArrayList<WorkItem>>();
         List<WorkItem> listWI = new ArrayList<WorkItem>();
         List<WorkItem> listWINotFinished = new ArrayList<WorkItem>();
+        List<WorkItem> listWIAccepted = new ArrayList<WorkItem>();
         Enumeration processes = null;
 
         try {
@@ -544,6 +550,8 @@
                         listWI.add(wfVotingEventAudit.getWorkItem());
                     } else if (obj.getClass().isAssignableFrom(WorkItem.class) && ((WorkItem) obj).getStatus().equals(WfAssignmentState.POTENTIAL)) {
                         listWINotFinished.add((WorkItem) obj);
+                    } else if (obj.getClass().isAssignableFrom(WorkItem.class) && ((WorkItem) obj).getStatus().equals(WfAssignmentState.ACCEPTED)) {
+                        listWIAccepted.add((WorkItem) obj);
                     }
                 }
             }
@@ -551,6 +559,7 @@
 
         workItems.put("listWI", (ArrayList<WorkItem>) listWI);
         workItems.put("listWINotFinished", (ArrayList<WorkItem>) listWINotFinished);
+        workItems.put("listWIAccepted", (ArrayList<WorkItem>) listWIAccepted);
 
         return (TreeMap<String, ArrayList<WorkItem>>) workItems;
     }
